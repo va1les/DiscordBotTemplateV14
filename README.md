@@ -1,4 +1,4 @@
-# discord-eco-bot
+# Discord Bot Template V14.5!
 
 **Links:**
 
