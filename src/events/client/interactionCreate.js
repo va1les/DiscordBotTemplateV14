@@ -9,8 +9,8 @@ module.exports = {
         const cmd = client.commands.get(interaction.commandName)
         if (!cmd) return;
 
-        if (!await client.db.guild.findOne({ guildId: interaction.guild.id })) await mongodb.guild.create({ guildId: interaction.guild.id })
-        if (!await client.db.user.findOne({ guildId: interaction.guild.id, userId: interaction.user.id })) await mongodb.user.create({ guildId: interaction.guild.id, userId: interaction.user.id })
+        if (!await client.db.guild.findOne({ guildId: interaction.guild.id })) await client.db.guild.create({ guildId: interaction.guild.id })
+        if (!await client.db.user.findOne({ guildId: interaction.guild.id, userId: interaction.user.id })) await client.db.user.create({ guildId: interaction.guild.id, userId: interaction.user.id })
 
         if (cmd.user_perm && cmd.user_perm.length > 0 && !interaction.member.permissions.has(cmd.user_perm)) {
             return text(`> ${client.emoji.error} You don\'t have permissions: \`${cmd.user_perm.join(", ")}\``, true);
