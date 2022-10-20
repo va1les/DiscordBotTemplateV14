@@ -13,10 +13,10 @@ module.exports = {
         if (!await client.db.user.findOne({ guildId: interaction.guild.id, userId: interaction.user.id })) await client.db.user.create({ guildId: interaction.guild.id, userId: interaction.user.id })
 
         if (cmd.user_perm && cmd.user_perm.length > 0 && !interaction.member.permissions.has(cmd.user_perm)) {
-            return text(`> ${client.emoji.error} You don\'t have permissions: \`${cmd.user_perm.join(", ")}\``, true);
+            return interaction.reply(`> ${client.emoji.error} You don\'t have permissions: \`${cmd.user_perm.join(", ")}\``, true);
         }
         if (cmd.bot_perm && cmd.bot_perm.length > 0 && !interaction.guild.members.me.permissions.has(cmd.bot_perm)) {
-            return text(`> ${client.emoji.error} I don\'t have permissions: \`${cmd.bot_perm.join(", ")}\``, true);
+            return interaction.reply(`> ${client.emoji.error} I don\'t have permissions: \`${cmd.bot_perm.join(", ")}\``, true);
         }
 
         if (!cooldowns.has(interaction.commandName)) {
