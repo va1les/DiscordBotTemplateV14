@@ -29,4 +29,5 @@ contacts: {
 telegram: "@va1les_tg",
 discord: "! va1les#8845", // https://discord.com/users/550336142160035840
 }
+// команда шардов принадлежит - https://github.com/ZFCStar
 ```
